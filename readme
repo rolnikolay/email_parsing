@@ -1,0 +1,94 @@
+# Gmail Attachment Downloader
+
+This Python script allows you to scan your Gmail inbox, identify relevant emails based on specified keywords, and download attachments (e.g., PDFs) from those emails.
+
+---
+
+## Features
+
+- Scans Gmail for emails containing specific keywords.
+- Downloads and saves attachments (e.g., invoices, receipts) locally.
+- Filters emails to avoid promotional or irrelevant content.
+- Allows customization of keyword lists and date ranges.
+
+---
+
+## Prerequisites
+
+Before using this script, ensure you have the following:
+
+1. **Python 3.7 or later** installed on your system.
+2. **Gmail API enabled** for your Google account.
+3. **Google API credentials** (a `credentials.json` file).
+
+---
+
+## Setup Instructions
+
+### Step 1: Enable Gmail API and Obtain Credentials
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+2. Create a new project (or use an existing one).
+3. Enable the **Gmail API** for the project.
+4. Go to **APIs & Services > Credentials**, and create OAuth 2.0 credentials.
+5. Download the `credentials.json` file and place it in the root directory of the project.
+
+---
+
+### Step 2: Install Required Libraries
+
+Install the required Python packages:
+
+```bash
+pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+```
+
+---
+
+### Step 3: Running the Script
+
+1. Clone or download this repository.
+2. Place your `credentials.json` file in the same directory as the script.
+3. Run the script:
+
+```bash
+python script_name.py
+```
+
+The first time you run the script, it will open a browser for you to log in to your Google account and authorize access. This creates a token.pickle file to store your authentication token for future runs.
+
+---
+
+## Customization
+
+### 1. Keywords
+
+To customize the keywords used for identifying relevant emails, modify the `INCLUDE_KEYWORDS` and `EXCLUDE_KEYWORDS` lists in the script:
+
+```python
+INCLUDE_KEYWORDS = ["invoice", "receipt", "bill", "payment confirmation", "purchase", "order summary"]
+EXCLUDE_KEYWORDS = ["promo", "special offer", "advertisement", "newsletter", "learn more"]
+```
+
+---
+
+## Date Range
+
+Set the start_date and end_date variables to filter emails by date:
+
+```python
+start_date = "YYYY-MM-DD"
+end_date = "YYYY-MM-DD"
+```
+
+## Disclaimer
+
+This script is provided as-is. The user is responsible for ensuring compliance with all applicable laws and for safeguarding the data and credentials.
+
+## Contributions
+
+Feel free to fork this repository and suggest improvements or new features via pull requests.
+
+## License
+
+This project is open-source and available under the MIT License.
